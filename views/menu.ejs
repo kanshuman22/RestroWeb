@@ -1,0 +1,78 @@
+<%- include('header') %>
+
+<div class="container">
+    <h5>This section is for adding new items in the menu</h5>
+    <form action="/menu/new" method="post">
+        <h5>Food ID: <%= menuItemCount %> (this ID will be allotted for a new item)</h5>
+        <input type="hidden" name="Id" value="<%= menuItemCount %>">
+        <input class="form-control" type="text" name="name" placeholder="Item name">
+        <input class="form-control" type="number" name="price" placeholder="Price">
+        <div class="form-group">
+        <label for="type">Type</label>
+        <select class="form-control" name="type" id="type">
+            <option value="Starter">Starters</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Other">Others</option>
+        </select>
+        </div>
+        <input class="form-control" type="text" name="cuisine" placeholder="Cuisine">
+        
+        <br>
+        <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/menu/upd" method="post">
+                <h5>Update Price for Menu Item</h5>
+                <input class="form-control" type="number" name="itemId" placeholder="Item ID">
+                <input class="form-control" type="number" name="newPrice" placeholder="New Price">
+                <br>
+                <button type="submit" class="btn btn-primary">Update Price</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form action="/menu/delete" method="post">
+                <h5>Delete Menu Item</h5>
+                <input class="form-control" type="number" name="itemId" placeholder="Item ID">
+                <br>
+                <button type="submit" class="btn btn-danger">Delete Item</button>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="mt-4">Menu Items</h1>
+    <div class="menu-items row">
+        <% items.forEach((item) => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title"><%= item.name %></h3>
+                        <p class="card-text">ID: <%= item.Id %></p>
+                        <p class="card-text">Price: Rs.<%= item.price %></p>
+                        <p class="card-text">Type: <%= item.type %></p>
+                        <p class="card-text">Cuisine: <%= item.cuisine %></p>
+                        <form action="/menu/delete" method="post">
+                            <input type="hidden" name="itemId" value=<%=item.Id%>>
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                        <form action="/menu/upd" method="post">
+                            <input type="hidden" name="itemId" value=<%=item.Id%>>
+                            <input type="number" name="newPrice" placeholder="New Price">
+                            <button class="btn btn-info">Update Price</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<%- include('footer') %>

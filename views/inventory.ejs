@@ -1,0 +1,55 @@
+<%- include('header') %>
+
+<div class="container">
+    <h1>Tickets Inventory</h1>
+    
+    <!-- Form to Add New Ticket -->
+    <h3>Add New Ticket</h3>
+    <form action="/inventory/add" method="post">
+        <div class="form-group">
+            <label for="issue">Issue:</label>
+            <input type="text" class="form-control" id="issue" name="issue" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+    
+    <!-- Display Unresolved Tickets -->
+    <% if (tickets.length > 0) { %>
+        <h3>Unresolved Tickets</h3>
+        <div class="row">
+            <% tickets.filter(ticket => !ticket.status).forEach((ticket) => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Ticket</h5>
+                            <p class="card-text"><%= ticket.issue %></p>
+                            <form action="/inventory/resolve/<%= ticket._id %>" method="post">
+                                <button type="submit" class="btn btn-success">Mark as Resolved</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        
+        <!-- Display Resolved Tickets -->
+        <h3>Resolved Tickets</h3>
+        <div class="row">
+            <% tickets.filter(ticket => ticket.status).forEach((ticket) => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Ticket (Resolved)</h5>
+                            <p class="card-text"><%= ticket.issue %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No tickets available.</p>
+    <% } %>
+</div>
+
+<%- include('footer') %>

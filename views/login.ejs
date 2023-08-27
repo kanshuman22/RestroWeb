@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestroWeb</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body style="background-image: url('logpic.png'); background-size: cover; padding-bottom: 5rem;"></body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <h1 class="card-title">RestroWeb</h1>
+                        <form method="POST" action="/login">
+                            <div class="mb-3">
+                                <label for="Id" class="form-label">User ID:</label>
+                                <input type="number" class="form-control" id="Id" name="Id" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <button  type="button" id="vis" class="btn btn-secondary" onclick="myFunction()">Show</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            
+                        </form>
+                        
+                        <a href="/signup"> Create an account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("password");  //Javascript for hide/show buttons in pwd section
+            if (x.type === "password") {
+              x.type = "text";
+              document.getElementById("vis").innerText="Hide";
+            } else {
+              x.type = "password";
+              document.getElementById("vis").innerText="Show";
+            }
+          }</script>
+<%- include('footer') %>

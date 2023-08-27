@@ -1,0 +1,82 @@
+<%- include('headeruser') %>
+
+<div class="container">
+    <h1>Place Your Order</h1>
+
+    <form id="orderForm" action="/place-online" method="post">
+        
+        
+        <input type="hidden" id="totalAmountInput" name="totalAmount" value="0">
+        <% if (menuItemsByType.length > 0) { %>
+            <% let totalAmount = 0; %>
+            <% menuItemsByType.forEach((typeGroup) => { %>
+                <h2><%= typeGroup.type %></h2>
+                <% typeGroup.cuisines.forEach((cuisineGroup) => { %>
+                    <h3><%= cuisineGroup.cuisine %></h3>
+                    <ul>
+                        <% cuisineGroup.items.forEach((item) => { %>
+                            <li>
+                                <div class="order-item">
+                                    <h4><%= item.name %></h4>
+                                    <span>Price: Rs. <%= item.price %></span>
+                                    <a href="/nutrition/<%=item.name%>" style="color: white;" >Check Nutrition</a>
+                                    <div class="quantity">
+                                        <button type="button" class="btn btn-secondary decrease-btn">-</button>
+                                        <input type="number" class="quantity-input" name="<%= item.Id %>" value="0" min="0" data-price="<%= item.price %>">
+                                        <button type="button" class="btn btn-secondary increase-btn">+</button>
+                                    </div>
+                                </div>
+                            </li>
+                        <% }); %>
+                    </ul>
+                <% }); %>
+            <% }); %>
+            <button type="submit" class="btn btn-primary">Confirm Order</button>
+
+            <div class="total-amount">
+                <h4>Total Amount: Rs. <span id="totalAmountSpan" >0</span></h4>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const decreaseButtons = document.querySelectorAll(".decrease-btn");
+                    const increaseButtons = document.querySelectorAll(".increase-btn");
+                    const quantityInputs = document.querySelectorAll(".quantity-input");
+                    const totalAmountSpan = document.getElementById("totalAmountSpan");
+
+                    decreaseButtons.forEach((button, index) => {
+                        button.addEventListener("click", function () {
+                            if (parseInt(quantityInputs[index].value) > 0) {
+                                quantityInputs[index].value--;
+                                calculateTotalAmount();
+                            }
+                        });
+                    });
+
+                    increaseButtons.forEach((button, index) => {
+                        button.addEventListener("click", function () {
+                            quantityInputs[index].value++;
+                            calculateTotalAmount();
+                        });
+                    });
+
+                    function calculateTotalAmount() {
+                        let total = 0;
+                        quantityInputs.forEach((input) => {
+                            const quantity = parseInt(input.value);
+                            const price = parseInt(input.getAttribute("data-price"));
+                            total += quantity * price;
+                        });
+                        document.getElementById("totalAmountInput").value = total;
+                        totalAmountSpan.textContent = total;
+                    }
+                });
+            </script>
+
+        <% } else { %>
+            <p>No menu items available.</p>
+        <% } %>
+    </form>
+</div>
+
+<%- include('footer') %>
