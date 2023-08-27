@@ -18,41 +18,44 @@ You can use this option if you want :You can run the command " mongosh additem.j
 6)You can now use the website <br/>
 <br/>
 
-The project aims to provide a powerful platform for restaurants to scale up their efficiency and performance thereby leading them to increase their revenues .
-More specifically it helps by :-
-Providing easy and efficient way of noting orders for waiters
-Keeping record of orders
-Providing forum for posting inventory shortcomings
-Management of the menu and the item prices
-Improvement by enabling customers to post reviews
-Providing platform for Online orders
-★ Providing nutrition details of the dishes in just a click , a feature that will attract today’s increasing health savyy audience and also helps customers who don’t know about a particular item in menu.
-WORKING:
-RestroWeb has two types of accounts :normal user and staff
-The staff will use the website to enchance the workflow in restaurants.
-The waiter can use the website to note orders , by going  to the note an order tab . Here a very user friendly interface is provided similar to apps like Zomato etc. here he enters the table no. and enters the order easily after which the order is registered in the system with automatic billing. Also the interface includes an innovative feature which with just one click the nutritional values can be accessed and shared with customer. 
-The existing orders tab can be used to track the orders, which provides user friendly interface to see the unattended , attended, unpaid or paid orders  with the details and mark them paid or attended when done so.
-The  inventory tab provides a forum for all the staff to post any shortcomings observed by them ,like a chef may post that a stove is not working etc. It also provides option to mark the posts as resolved and keeps a history of resolved and unresolved issues.
-Reviews tab can be used to assess the reviews by customers.
-The nutrition tab to search any dish for its nutritional values.
-For a normal customer, three tabs are provided one is to enable them post an order and the user friendly interface includes a check nutrition feature(stated earlier), a tab to post their reviews and the nutrition tab similar to the previous one mentioned.
+# RestroWeb - by Anshuman Kumar
 
-TECHNICAL DETAILS:
-Bootstrap,MongoDb , Express , Node js , ejs templating ,  mongoose  and other libraries were used.
-The project is a full stack project  with API also being used in it.
-Embedded Javascript templating was used to manage the frontend.
-Node js was used for backend. POST and GET requests were used to communicate to the server according to the functionality. Server would reply back with the data or perform any needed operations.
-Custom routing parameters were also used for various operations.
-MongoDB was used for database. Four tables were used :
-Database name : RestroWebdb
-Menu : To store the items and the details
-Reviews :To  store the details of the reviews posted by the customers
-Orders: To store the order details
-Customers: This was used to store the details of the users( 2 types of users distinguished by the attribute:type  - “staff” or “user”)
-User Authentication and session also integrated with the help of Passport js.
-It was ensure through it that the normal accounts don’t get access to pages for staff.
-Mostly Bootstap was used for designing the webpages and giving it user friendly interface.
-A very interactive interface was created instead of the conventional enter id etc…
-API  was used for the nutrition details
+## Problem Statement
 
+The food and hospitality industry is on a rapid growth trajectory, resulting in a surge of customers at restaurants. While online platforms have facilitated a digital presence, delivering a seamless dine-in experience remains crucial. Restaurants, as they expand, face challenges in managing both their online and real-world operations. Real-world issues include order recording, billing errors, misplaced orders, menu management, staff coordination, and inventory management. RestroWeb addresses these challenges, offering innovative solutions for both online and offline operations.
+
+## Project Goals
+
+RestroWeb is designed to provide a comprehensive platform that enhances restaurant efficiency, thereby driving increased revenue. The project seeks to achieve the following goals:
+
+- Efficient order taking for waitstaff.
+- Accurate and organized order record-keeping.
+- A forum for staff to report inventory issues.
+- Streamlined menu management, including item prices.
+- Customer feedback and improvement through reviews.
+- Effective online order management.
+- Quick access to nutritional information for dishes.
+
+## Methodology
+
+RestroWeb serves two types of accounts: normal users and staff members. Staff members use the platform to streamline restaurant operations. Waitstaff use the "Note an Order" tab to easily record orders. The intuitive interface resembles popular food delivery apps, allowing waitstaff to input table numbers and order details for automatic billing. An innovative feature enables one-click access to nutritional information for dishes. The "Existing Orders" tab enables efficient tracking of orders and their statuses. The "Inventory" tab provides a space for staff to report and resolve issues. Customers can post reviews through the "Reviews" tab. The "Nutrition" tab offers nutritional information for each dish.
+
+## Technical Details
+
+Technologies utilized in RestroWeb:
+
+- Frontend: Bootstrap, EJS templating
+- Backend: Node.js, Express
+- Database: MongoDB
+- Libraries: Mongoose, Passport.js for authentication
+
+RestroWeb is a full-stack application with integrated APIs. The frontend employs Embedded JavaScript templating for user interfaces, while the backend is built on Node.js. GET and POST requests facilitate communication between the server and client. Custom routing parameters are used for various operations. MongoDB stores data across four tables: Menu, Reviews, Orders, and Customers. User authentication and sessions are handled through Passport.js.
+
+## Challenges Faced
+
+Designing the "Note an Order" and "Order" pages posed significant challenges. The objective was to display items sorted by type (e.g., Starters, Desserts), with further sorting by cuisine within each type. The interface required +/- buttons for adjusting quantities and automatic cost calculations. Creating an array of order details for server submission added complexity.
+
+These challenges were overcome through complex coding on both the server and frontend. The frontend involved DOM manipulation to achieve features like automatic cost calculation. On the server side, items were grouped and sorted based on their types and subtypes using filters.
+
+---
 
