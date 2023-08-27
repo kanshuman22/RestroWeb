@@ -8,6 +8,7 @@ System should have MongoDB installed locally
 1)Download the project maintaining the same directory structure
 2)Open the folder in terminal
 3) Run npm install
+4) Run npm i ejs
 
 **Pre populated database**
 You can use this option if you want :You can run the command " mongosh additem.js " to populate the menu and tickets table **Use this only once or else it will lead to multiple items with same id**
