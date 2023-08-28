@@ -1,5 +1,5 @@
 # RestroWeb
-This is a full stack web application designed by me to manage the day to day operations efficiently in a restaurant . This application also has provision for online booking and interaction between and customers and restaurants , also it concentrates on dine in experience.
+This is a full stack web application designed by me to manage the day to day operations efficiently in a restaurant . This application also has provision for online booking and interaction between and customers and restaurants .
 
 Instructions to run the project:
 
@@ -18,7 +18,9 @@ You can use this option if you want :You can run the command " mongosh additem.j
 6)You can now use the website <br/>
 <br/>
 
-**Please go through this video for a quick overview :https://youtu.be/5NUBvYA8Hf4**
+**Please go through this video for a quick overview and understanding of the project :https://youtu.be/5NUBvYA8Hf4**
+
+**code documentation: elaborate variable names used with commnents ,both of them to make code understandable**
 
 ## PROJECT REPORT
 ## RestroWeb- by Anshuman Kumar
