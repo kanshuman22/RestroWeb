@@ -1,0 +1,21 @@
+<%- include('header') %>
+   <!-- This is the page which allows restaurant to see the feedback received-->
+<div class="container mt-4">
+    <!--Reviews array passed and then reviews displayed with id and name-->
+    <h2>Customer Reviews</h2>
+    <% if (reviews.length === 0) { %>
+        <p>No reviews available.</p>
+    <% } else { %>
+        <ul class="list-group mt-3">
+            <% reviews.reverse().forEach(review => { %>
+                <li class="list-group-item">
+                    <h5>Id:<%- review.userid %></h5>
+                    <h5>Name:<%- review.userName %></h5>
+                    <p><%- review.data %></p>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+</div>
+
+<%- include('footer') %>
