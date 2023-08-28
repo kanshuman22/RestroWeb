@@ -40,6 +40,7 @@ The project aims to provide a powerful platform for restaurants to scale up thei
 <br/>The existing orders tab can be used to track the orders, which provides user friendly interface to see the unattended , attended, unpaid or paid orders  with the details and mark them paid or attended when done so.
 <br/>The  inventory tab provides a forum for all the staff to post any shortcomings observed by them ,like a chef may post that a stove is not working etc. It also provides option to mark the posts as resolved and keeps a history of resolved and unresolved issues.
 <br/>Reviews tab can be used to assess the reviews by customers.
+<br/>Update menu tab is for centralized management of the menu like adding new items or deleting or updating them.
 <br/>The nutrition tab to search any dish for its nutritional values.
 <br/>For a normal customer, three tabs are provided one is to enable them post an order and the user friendly interface includes a check nutrition feature(stated earlier), a tab to post their reviews and the nutrition tab similar to the previous one mentioned.
 
